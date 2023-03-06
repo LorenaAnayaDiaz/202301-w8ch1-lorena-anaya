@@ -1,6 +1,6 @@
 #root {
   background: linear-gradient(black, transparent 50%, black),
-    url(../public/assets/images/universe-background.jpg);
+    url(../public/assets/universe-background.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
