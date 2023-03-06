@@ -1,0 +1,14 @@
+.heading__title {
+  font-family: "Starjhol", sans-serif;
+  color: #ffe81f;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.layout__footer {
+  padding-top: 2rem;
+  font-size: 1rem;
+  color: #ffe81f;
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+}
