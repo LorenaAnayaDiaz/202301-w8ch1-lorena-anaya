@@ -21,7 +21,7 @@ const CharactersList = () => {
       case APIStatus.LOADING:
         return <Loading />;
       case APIStatus.ERROR:
-        return <p>Error</p>;
+        return <p role="paragraph">Error</p>;
       default:
         return (
           <>
