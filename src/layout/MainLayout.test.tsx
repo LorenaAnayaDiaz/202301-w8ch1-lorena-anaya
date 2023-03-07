@@ -9,6 +9,6 @@ test("When rendering mainlayout, then navbar and outlet must be in the document"
       <MainLayout />
     </BrowserRouter>
   );
-  const title = screen.getByText("Star Wars Robots");
+  const title = screen.getByText("Star Wars Adventures");
   expect(title).toBeInTheDocument();
 });

@@ -1,9 +1,9 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import cardListReducer from "../features/cardlist/cardlistSlice";
+import charactersReducer from "../features/characters/characters-slice";
 
 export const store = configureStore({
   reducer: {
-    cardList: cardListReducer,
+    characters: charactersReducer,
   },
 });
 

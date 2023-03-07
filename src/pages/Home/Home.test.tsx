@@ -15,8 +15,7 @@ test("When rendering home, the title should be displayed", () => {
       </React.StrictMode>
     </MemoryRouter>
   );
-  const linkElement = screen.getByRole("link");
-  expect(linkElement).toBeInTheDocument();
-  const title = screen.getByText("Check out the robots!");
+
+  const title = screen.getByText("CHARACTERS");
   expect(title).toBeInTheDocument();
 });
