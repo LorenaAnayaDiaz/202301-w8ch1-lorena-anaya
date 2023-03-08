@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Card } from "../../shared/components/card/Card";
 import Loading from "../../shared/components/Loading/Loading";
+import { Pagination } from "../../shared/components/Pagination/Pagination";
 import { APIStatus } from "../../shared/models/api-status";
 import { CharactersContainer } from "./CharacterListStyled";
 
@@ -13,8 +14,8 @@ const CharactersList = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getAllByPageAsync(1));
-  }, [dispatch]);
+    dispatch(getAllByPageAsync(charactersState.currentPage));
+  }, [dispatch, charactersState.currentPage]);
 
   const generateCharacterComponent = () => {
     switch (charactersState.status) {
@@ -25,6 +26,7 @@ const CharactersList = () => {
       default:
         return (
           <>
+            <Pagination />
             <CharactersContainer>
               {charactersState.characters.map((character: Character) => (
                 <li key={`${character.id}-${character.name}`}>

@@ -13,6 +13,8 @@ export const getAllCharactersByPage = async (
   const characters: PeopleResponse = await response.json();
   return {
     count: characters.count,
+    previous: characters.previous,
+    next: characters.next,
     characters: characters.results.map((character) => {
       const id = getIdFromCharacter(character);
       return {

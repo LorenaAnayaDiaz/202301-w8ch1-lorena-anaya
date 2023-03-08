@@ -11,8 +11,8 @@ export interface People {
 
 export interface PeopleResponse {
   count: number;
-  next?: string;
-  previous?: string;
+  next?: string | null;
+  previous?: string | null;
   results: Character[];
 }
 
@@ -21,6 +21,8 @@ export interface PeopleResponse {
 export interface Characters {
   count: number;
   characters: Character[];
+  next?: string | null;
+  previous?: string | null;
 }
 
 export interface CharactersState extends Characters {
