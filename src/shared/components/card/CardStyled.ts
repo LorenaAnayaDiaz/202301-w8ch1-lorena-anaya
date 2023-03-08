@@ -4,7 +4,7 @@ export const CardContainer = styled.article`
   position: relative;
   display: grid;
   width: 200px;
-  height: 300px;
+  height: 250px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   gap: 20px;

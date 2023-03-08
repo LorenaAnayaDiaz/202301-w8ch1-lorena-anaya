@@ -12,7 +12,6 @@ export const Card: FC<CardProps> = ({ name, imgUrl }) => {
       <CardImg src={imgUrl} alt={`${name}-avatar`} />
       <div>
         <div>
-          <span>Name:</span>
           <span> {name}</span>
         </div>
       </div>
