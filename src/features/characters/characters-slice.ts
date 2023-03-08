@@ -8,16 +8,23 @@ const STATE_NAME = "characters";
 
 const INITIAL_STATE: CharactersState = {
   characters: [],
-  currentPage: 0,
+  currentPage: 1,
   status: APIStatus.IDLE,
   count: 0,
+  previous: null,
+  next: "",
 };
 
 export const getAllByPageAsync = createAsyncThunk(
   `${STATE_NAME}/getAllByPage`,
   async (nextPage: number) => {
     const characters = await getAllCharactersByPage(nextPage);
-    return { ...characters, currentPage: nextPage };
+    return {
+      ...characters,
+      previous: characters.previous,
+      next: characters.next,
+      currentPage: nextPage,
+    };
   }
 );
 
@@ -25,7 +32,16 @@ export const charactersSlice = createSlice({
   name: "characters",
   initialState: INITIAL_STATE,
 
-  reducers: {},
+  reducers: {
+    nextPage: (state) => {
+      state.next !== null ? (state.currentPage += 1) : (state = { ...state });
+    },
+    previousPage: (state) => {
+      state.previous !== null
+        ? (state.currentPage -= 1)
+        : (state = { ...state });
+    },
+  },
 
   extraReducers: (builder) => {
     builder
@@ -37,6 +53,8 @@ export const charactersSlice = createSlice({
         state.characters = action.payload.characters;
         state.count = action.payload.count;
         state.currentPage = action.payload.currentPage;
+        state.previous = action.payload.previous;
+        state.next = action.payload.next;
       })
 
       .addCase(getAllByPageAsync.rejected, (state) => {
@@ -46,5 +64,5 @@ export const charactersSlice = createSlice({
 });
 
 export const selectCharacters = (state: RootState) => state.characters;
-
+export const { nextPage, previousPage } = charactersSlice.actions;
 export default charactersSlice.reducer;

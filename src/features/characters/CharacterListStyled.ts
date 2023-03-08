@@ -6,6 +6,4 @@ export const CharactersContainer = styled.ul`
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  padding-top: 2rem;
-  padding-bottom: 4rem;
 `;
